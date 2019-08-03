@@ -1,0 +1,50 @@
+{
+    "name": "@0x/ts-doc-gen",
+    "version": "0.0.1",
+    "engines": {
+        "node": ">=6.12"
+    },
+    "description": "A CLI for generating a single MD reference doc file for a TS project",
+    "main": "lib/src/index.js",
+    "types": "lib/src/index.d.ts",
+    "scripts": {
+        "build": "tsc -b",
+        "clean": "shx rm -rf lib",
+        "lint": "tslint --format stylish --project ."
+    },
+    "bin": {
+        "ts-doc-gen": "bin/ts-doc-gen.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/0xProject/0x-ts-doc-gen.git"
+    },
+    "author": "Fabio Berger",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/0xProject/0x-ts-doc-gen/issues"
+    },
+    "homepage": "https://github.com/0xProject/0x-ts-doc-gen/README.md",
+    "dependencies": {
+        "@0x/typescript-typings": "^4.2.2",
+        "@0x/utils": "^4.3.3",
+        "promisify-child-process": "^3.1.1",
+        "rimraf": "^2.6.3",
+        "glob": "^7.1.4",
+        "yargs": "^10.0.3"
+    },
+    "devDependencies": {
+        "@0x/tslint-config": "^3.0.1",
+        "@types/glob": "^7.1.1",
+        "@types/rimraf": "^2.0.2",
+        "@types/yargs": "^11.0.0",
+        "shx": "^0.2.2",
+        "tslint": "5.11.0",
+        "typedoc": "^0.15.0",
+        "typedoc-plugin-markdown": "^2.1.0",
+        "typescript": "3.0.1"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
