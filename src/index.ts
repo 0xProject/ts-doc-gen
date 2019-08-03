@@ -31,11 +31,18 @@ const globAsync = promisify(glob);
     ).argv;
 
     await rimrafAsync(args.output);
+    const args = `--theme markdown --platform gitbook --excludePrivate --excludeProtected --excludeExternals --excludeNotExported --target ES5 --module commonjs --hideGenerator --out ${args.output} ${args.sourceDir}`;
     try {
-        await execAsync(`./node_modules/typedoc/bin/typedoc --theme markdown --platform gitbook --excludePrivate --excludeProtected --excludeExternals --excludeNotExported --target ES5 --module commonjs --hideGenerator --out ${args.output} ${args.sourceDir}`);
+        await execAsync(`./node_modules/typedoc/bin/typedoc ${args}`);
     } catch (err) {
-        logUtils.log('typedoc command failed: ', err);
-        process.exit(1);
+        // It might fail because we're in a hoisted lerna workspace, so try calling it via the `.bin` file
+        try {
+            await execAsync(`./node_modules/.bin/typedoc ${args}`);
+        } catch (err) {
+            // If that fails too, something went wrong
+            logUtils.log('typedoc command failed: ', err);
+            process.exit(1);
+        }
     }
 
     // Concat all TS Client MD files together into a single reference doc
