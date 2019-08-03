@@ -76,7 +76,7 @@ const globAsync = promisify(glob);
         });
     for (const path of paths) {
             if (path.includes('.md', 1)) {
-                if (!path.includes('README.md', 1) && !path.includes('/modules/', 1) && !path.includes('globals.md', 1)) {
+                if (!path.includes('README.md', 1) && !path.includes('SUMMARY.md', 1) && !path.includes('/modules/', 1) && !path.includes('globals.md', 1)) {
                     // Read file content and concat to new file
                     const content = fs.readFileSync(path);
                     fs.appendFileSync(referencePath, content);
@@ -102,7 +102,7 @@ const globAsync = promisify(glob);
     docs = docs.replace(/\]\(..\/classes\/.*?\.(.*?)\.md\)/g, '](#class-$1)');
     docs = docs.replace(/\]\(..\/enums\/.*?\.(.*?)\.md\)/g, '](#enumeration-$1)');
     docs = docs.replace(/\]\(_types_\.(.*?)\.md\)/g, '](#interface-$1)');
-    docs = docs.replace(/\]\(.*\.(.*?)\.md\)/g, '](#class-$1)');
+    docs = docs.replace(/\]\((?!.*(\]\()).*\.(.*?)\.md\)/g, '](#class-$2)');
     fs.writeFileSync(referencePath, docs);
     logUtils.log('TS doc generation complete!');
 })();
