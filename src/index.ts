@@ -38,7 +38,7 @@ const globAsync = promisify(glob);
     ).argv;
 
     await rimrafAsync(args.output);
-    let typedocArgs = `--theme markdown --platform gitbook --excludePrivate --excludeProtected --excludeExternals --excludeNotExported --target ES5 --module commonjs --hideGenerator --out ${args.output} ${args.sourceDir}`;
+    let typedocArgs = `--theme markdown --platform gitbook --ignoreCompilerErrors --excludePrivate --excludeProtected --excludeExternals --excludeNotExported --target ES5 --module commonjs --hideGenerator --out ${args.output} ${args.sourceDir}`;
     if (args.tsconfig !== undefined) {
         typedocArgs = `--tsconfig ${args.tsconfig} ${typedocArgs}`;
     }
