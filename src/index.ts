@@ -31,13 +31,13 @@ const globAsync = promisify(glob);
     ).argv;
 
     await rimrafAsync(args.output);
-    const args = `--theme markdown --platform gitbook --excludePrivate --excludeProtected --excludeExternals --excludeNotExported --target ES5 --module commonjs --hideGenerator --out ${args.output} ${args.sourceDir}`;
+    const typedocArgs = `--theme markdown --platform gitbook --excludePrivate --excludeProtected --excludeExternals --excludeNotExported --target ES5 --module commonjs --hideGenerator --out ${args.output} ${args.sourceDir}`;
     try {
-        await execAsync(`./node_modules/typedoc/bin/typedoc ${args}`);
+        await execAsync(`./node_modules/typedoc/bin/typedoc ${typedocArgs}`);
     } catch (err) {
         // It might fail because we're in a hoisted lerna workspace, so try calling it via the `.bin` file
         try {
-            await execAsync(`./node_modules/.bin/typedoc ${args}`);
+            await execAsync(`./node_modules/.bin/typedoc ${typedocArgs}`);
         } catch (err) {
             // If that fails too, something went wrong
             logUtils.log('typedoc command failed: ', err);
