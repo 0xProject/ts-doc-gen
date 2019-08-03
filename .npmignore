@@ -1,0 +1,5 @@
+# Blacklist all files
+.*
+*
+# Whitelist lib
+!lib/**/*
