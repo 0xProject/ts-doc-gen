@@ -25,13 +25,23 @@ const globAsync = promisify(glob);
         normalize: true,
         demandOption: true,
     })
+    .option('tsconfig', {
+        describe: 'A custom tsconfig to use with TypeDoc',
+        type: 'string',
+        normalize: true,
+        demandOption: false,
+        default: undefined,
+    })
     .example(
         "$0 --src 'src' --out 'docs'",
         'Full usage example',
     ).argv;
 
     await rimrafAsync(args.output);
-    const typedocArgs = `--theme markdown --platform gitbook --excludePrivate --excludeProtected --excludeExternals --excludeNotExported --target ES5 --module commonjs --hideGenerator --out ${args.output} ${args.sourceDir}`;
+    let typedocArgs = `--theme markdown --platform gitbook --excludePrivate --excludeProtected --excludeExternals --excludeNotExported --target ES5 --module commonjs --hideGenerator --out ${args.output} ${args.sourceDir}`;
+    if (args.tsconfig !== undefined) {
+        typedocArgs = `--tsconfig ${args.tsconfig} ${typedocArgs}`;
+    }
     try {
         await execAsync(`./node_modules/typedoc/bin/typedoc ${typedocArgs}`);
     } catch (err) {
