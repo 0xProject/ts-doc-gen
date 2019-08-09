@@ -56,7 +56,7 @@ const globAsync = promisify(glob);
     }
 
     // Concat all TS Client MD files together into a single reference doc
-    const referencePath = `${args.output}/reference.md`;
+    const referencePath = `${args.output}/reference.mdx`;
     await rimrafAsync(referencePath);
     const paths = await globAsync(`${args.output}/**/*`) as string[];
 
