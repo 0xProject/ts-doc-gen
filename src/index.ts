@@ -32,6 +32,13 @@ const globAsync = promisify(glob);
         demandOption: false,
         default: undefined,
     })
+    .option('fileExtension', {
+        describe: 'The file extension you want the reference markdown written to',
+        type: 'string',
+        normalize: true,
+        demandOption: false,
+        default: 'md',
+    })
     .example(
         "$0 --src 'src' --out 'docs'",
         'Full usage example',
@@ -56,7 +63,7 @@ const globAsync = promisify(glob);
     }
 
     // Concat all TS Client MD files together into a single reference doc
-    const referencePath = `${args.output}/reference.mdx`;
+    const referencePath = `${args.output}/reference.${args.fileExtension}`;
     await rimrafAsync(referencePath);
     const paths = await globAsync(`${args.output}/**/*`) as string[];
 
