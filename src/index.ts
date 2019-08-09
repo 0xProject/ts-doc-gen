@@ -42,8 +42,6 @@ const globAsync = promisify(glob);
     if (args.tsconfig !== undefined) {
         typedocArgs = `--tsconfig ${args.tsconfig} ${typedocArgs}`;
     }
-    logUtils.log('CWD:', process.cwd());
-    logUtils.log('LS:', await execAsync('ls'));
     try {
         await execAsync(`./node_modules/typedoc/bin/typedoc ${typedocArgs}`);
     } catch (err) {
