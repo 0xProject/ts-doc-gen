@@ -3,3 +3,5 @@
 *
 # Whitelist lib
 !lib/**/*
+# whitelist bin
+!bin/**/*
