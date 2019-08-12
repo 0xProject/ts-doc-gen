@@ -110,6 +110,7 @@ const globAsync = promisify(glob);
     docs = docs.replace(/\]\(..\/enums\/.*?\.(.*?)\.md\)/g, '](#enumeration-$1)');
     docs = docs.replace(/\]\(_types_\.(.*?)\.md\)/g, '](#interface-$1)');
     docs = docs.replace(/\]\((?!.*(\]\()).*\.(.*?)\.md\)/g, '](#class-$2)');
+    docs = docs.replace(/Defined in \/.*/g, '');
     fs.writeFileSync(referencePath, docs);
     logUtils.log('TS doc generation complete!');
 })();
