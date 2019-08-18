@@ -110,7 +110,21 @@ const globAsync = promisify(glob);
     docs = docs.replace(/\]\(..\/enums\/.*?\.(.*?)\.md\)/g, '](#enumeration-$1)');
     docs = docs.replace(/\]\(_types_\.(.*?)\.md\)/g, '](#interface-$1)');
     docs = docs.replace(/\]\((?!.*(\]\()).*\.(.*?)\.md\)/g, '](#class-$2)');
+    // Remove "Defined in" when it's referencing an absolute path
     docs = docs.replace(/Defined in \/.*/g, '');
+    // Remove "Inherited from void"
+    docs = docs.replace(/\*Inherited from void\*/g, '');
+    // Get rid of `>` before H1s
+    docs = docs.replace(/> #/g, '#');
+    // Get rid on "Index" section with overview links
+    docs = docs.replace(/## Index.*?(\n##) /gms, '$1 ');
+    // Make ## into ###, and ### into ##
+    docs = docs.replace(/(\n##) /gm, '\n||| ');
+    docs = docs.replace(/\n### /gm, '\n## ');
+    docs = docs.replace(/\|\|\|/gm, '###');
+    // Deliberate rename "constructor" to "the constructor" b/c of website issues with
+    // header id named "constructor"
+    docs = docs.replace(/##  constructor/gm, '##  constructer');
     fs.writeFileSync(referencePath, docs);
     logUtils.log('TS doc generation complete!');
 })();
