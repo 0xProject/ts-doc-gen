@@ -104,7 +104,7 @@ const globAsync = promisify(glob);
         // Find/replace relative links with hash links
     const docsBuff = fs.readFileSync(referencePath);
     let docs = docsBuff.toString();
-    docs = docs.replace(/\]\(((?!.*(github.com)).*)(#.*\))/g, ']($3');
+    docs = docs.replace(/\]\(((?!.*(github.com|\]\()).*)(#.*\))/g, ']($3');
     docs = docs.replace(/\]\(..\/interfaces\/.*?\.(.*?)\.md\)/g, '](#interface-$1)');
     docs = docs.replace(/\]\(..\/classes\/.*?\.(.*?)\.md\)/g, '](#class-$1)');
     docs = docs.replace(/\]\(..\/enums\/.*?\.(.*?)\.md\)/g, '](#enumeration-$1)');
