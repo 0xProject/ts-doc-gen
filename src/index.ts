@@ -108,6 +108,7 @@ const globAsync = promisify(glob);
     docs = docs.replace(/\]\(..\/interfaces\/.*?\.(.*?)\.md\)/g, '](#interface-$1)');
     docs = docs.replace(/\]\(..\/classes\/.*?\.(.*?)\.md\)/g, '](#class-$1)');
     docs = docs.replace(/\]\(..\/enums\/.*?\.(.*?)\.md\)/g, '](#enumeration-$1)');
+    docs = docs.replace(/\]\(..\/modules\/.*?\.md/g, '](');
     docs = docs.replace(/\]\(_types_\.(.*?)\.md\)/g, '](#interface-$1)');
     docs = docs.replace(/\]\((?!.*(\]\()).*\.(.*?)\.md\)/g, '](#class-$2)');
     // Remove "Defined in" when it's referencing an absolute path
