@@ -83,7 +83,7 @@ const globAsync = promisify(glob);
         });
     for (const path of paths) {
             if (path.includes('.md', 1)) {
-                if (!path.includes('README.md', 1) && !path.includes('SUMMARY.md', 1) && !path.includes('/modules/', 1) && !path.includes('globals.md', 1)) {
+                if (!path.includes('README.md', 1) && !path.includes('SUMMARY.md', 1) && !path.includes('globals.md', 1)) {
                     // Read file content and concat to new file
                     const content = fs.readFileSync(path);
                     fs.appendFileSync(referencePath, content);
