@@ -101,7 +101,7 @@ const globAsync = promisify(glob);
             }
         }
 
-        // Find/replace relative links with hash links
+    // Find/replace relative links with hash links
     const docsBuff = fs.readFileSync(referencePath);
     let docs = docsBuff.toString();
     docs = docs.replace(/\]\(((?!.*(github.com|\]\()).*)(#.*\))/g, ']($3');
@@ -116,8 +116,6 @@ const globAsync = promisify(glob);
     docs = docs.replace(/\*Inherited from void\*/g, '');
     // Get rid of `>` before H1s
     docs = docs.replace(/> #/g, '#');
-    // Get rid on "Index" section with overview links
-    docs = docs.replace(/## Index.*?(\n##) /gms, '$1 ');
     // Make ## into ###, and ### into ##
     docs = docs.replace(/(\n##) /gm, '\n||| ');
     docs = docs.replace(/\n### /gm, '\n## ');
@@ -125,6 +123,8 @@ const globAsync = promisify(glob);
     // Deliberate rename "constructor" to "the constructor" b/c of website issues with
     // header id named "constructor"
     docs = docs.replace(/##  constructor/gm, '##  constructer');
+    // Get rid on "Index" section with overview links
+    docs = docs.replace(/### Index[\s\S]*?^(###|<hr \/>)/gm, '$1 ');
     fs.writeFileSync(referencePath, docs);
     logUtils.log('TS doc generation complete!');
 })();
