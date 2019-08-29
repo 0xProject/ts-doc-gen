@@ -117,15 +117,11 @@ const globAsync = promisify(glob);
     docs = docs.replace(/\*Inherited from void\*/g, '');
     // Get rid of `>` before H1s
     docs = docs.replace(/> #/g, '#');
-    // Make ## into ###, and ### into ##
-    docs = docs.replace(/(\n##) /gm, '\n||| ');
-    docs = docs.replace(/\n### /gm, '\n## ');
-    docs = docs.replace(/\|\|\|/gm, '###');
     // Deliberate rename "constructor" to "the constructor" b/c of website issues with
     // header id named "constructor"
-    docs = docs.replace(/##  constructor/gm, '##  constructer');
+    docs = docs.replace(/###  constructor/gm, '###  constructer');
     // Get rid on "Index" section with overview links
-    docs = docs.replace(/### Index[\s\S]*?^(###|<hr \/>)/gm, '$1 ');
+    docs = docs.replace(/## Index[\s\S]*?^(\n## |<hr \/>)/gm, '$1 ');
     fs.writeFileSync(referencePath, docs);
     logUtils.log('TS doc generation complete!');
 })();
