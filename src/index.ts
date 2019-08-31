@@ -119,7 +119,7 @@ const globAsync = promisify(glob);
     docs = docs.replace(/> #/g, '#');
     // Deliberate rename "constructor" to "the constructor" b/c of website issues with
     // header id named "constructor"
-    docs = docs.replace(/###  constructor/gm, '###  constructer');
+    docs = docs.replace(/###  constructor/gm, '');
     // Get rid on "Index" section with overview links
     docs = docs.replace(/## Index[\s\S]*?^(\n## |<hr \/>)/gm, '$1 ');
     fs.writeFileSync(referencePath, docs);
