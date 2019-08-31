@@ -120,8 +120,11 @@ const globAsync = promisify(glob);
     // Deliberate rename "constructor" to "the constructor" b/c of website issues with
     // header id named "constructor"
     docs = docs.replace(/###  constructor/gm, '');
+    docs = docs.replace(/(.*)# External module:(.*)/g, '');
     // Get rid on "Index" section with overview links
     docs = docs.replace(/## Index[\s\S]*?^(\n## |<hr \/>)/gm, '$1 ');
+    docs = docs.replace(/##( |  )Hierarchy[\s\S]*?^(\n## )/gm, '$2 ');
+
     fs.writeFileSync(referencePath, docs);
     logUtils.log('TS doc generation complete!');
 })();
