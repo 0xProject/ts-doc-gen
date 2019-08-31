@@ -121,9 +121,28 @@ const globAsync = promisify(glob);
     // header id named "constructor"
     docs = docs.replace(/###  constructor/gm, '');
     docs = docs.replace(/(.*)# External module:(.*)/g, '');
-    // Get rid on "Index" section with overview links
+                // Get rid on "Index" section with overview links
     docs = docs.replace(/## Index[\s\S]*?^(\n## |<hr \/>)/gm, '$1 ');
     docs = docs.replace(/##( |  )Hierarchy[\s\S]*?^(\n## )/gm, '$2 ');
+
+    // Reduce the methods under an object literal to H4 instead of also H3
+    const updatedLines = [];
+    const lines = docs.split('\n');
+    let isInObjectLiteral = false;
+    for (const line of lines) {
+        if (line.includes('### ▪ **')) {
+            isInObjectLiteral = true;
+        }
+        if (line.includes('___')) {
+            isInObjectLiteral = false;
+        }
+        if (isInObjectLiteral && line.includes('###')) {
+            updatedLines.push(`#${line}`);
+        } else {
+            updatedLines.push(line);
+        }
+    }
+    docs = updatedLines.join('\n');
 
     fs.writeFileSync(referencePath, docs);
     logUtils.log('TS doc generation complete!');
