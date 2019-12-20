@@ -147,4 +147,8 @@ const globAsync = promisify(glob);
 
     fs.writeFileSync(referencePath, docs);
     logUtils.log('TS doc generation complete!');
-})();
+    process.exit(0);
+})().catch(err => {
+    logUtils.log(err);
+    process.exit(1);
+});
