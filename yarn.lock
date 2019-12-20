@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@0x/tslint-config@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@0x/tslint-config/-/tslint-config-3.0.1.tgz#396038f617371ff6bc2dc36c2b5162b13835576f"
-  integrity sha512-EMp23FmyLylveQ6fezaywGwYvSTucbqz1hXVld5tUvpSPvtiAUQ89q4zOihSjiZ8cOug6oLL8294Ej0PpBcnzg==
+"@0x/tslint-config@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@0x/tslint-config/-/tslint-config-4.0.0.tgz#f73eb8d4b84e8825e986df787711dc68ed896b46"
+  integrity sha512-kFTp6huh3aAzxBr+41LYyYSS4P040vdAcyVRYfQE6jvtzVCG0NpMo5x3RVdXJrQxGJ1yAUMLaWYT3QOzFhIhJg==
   dependencies:
     lodash "^4.17.11"
     tslint "5.11.0"
@@ -13,39 +13,39 @@
     tslint-react "^3.2.0"
     tsutils "3.0.0"
 
-"@0x/types@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@0x/types/-/types-2.4.0.tgz#4924ab3b1e8cb7b99bf01713265ce54bbcc16790"
-  integrity sha512-F+yA9EAeUHH9JltaWH5ffi0CTQ0uVEMvgYduKLpWDcWxsQm6yJhi0waOZu2i0ISUvaWbKpmt5blXXO6KxeDN2w==
+"@0x/types@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@0x/types/-/types-3.1.1.tgz#b20ca76e9516201b9c27621f941696f41ffc9fac"
+  integrity sha512-+TQmzH+chWeDWpc+Lce3/q4X2UEHFfAwZcWrV7tEQ5EVAJvph7gpKawRW2XRsmHeQDSHBmiiBdSZ8Rc/OAjvlQ==
   dependencies:
     "@types/node" "*"
-    bignumber.js "~8.0.2"
-    ethereum-types "^2.1.3"
+    bignumber.js "~9.0.0"
+    ethereum-types "^3.0.0"
 
-"@0x/typescript-typings@^4.2.2", "@0x/typescript-typings@^4.2.3":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/@0x/typescript-typings/-/typescript-typings-4.2.3.tgz#eabf54053307ac505ef0013c189b9747425825d0"
-  integrity sha512-tXby3eQjvZBVYNl4St1p3gNSjs1vMx7aqXeoixIJtaSijiQc5aogDYdOy0bus/xaz1yOyzvmRnYHfWKIOYkTRA==
+"@0x/typescript-typings@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@0x/typescript-typings/-/typescript-typings-5.0.1.tgz#031e291cc506ecd26d3fe10adf618f4f51ff1510"
+  integrity sha512-zSA39URHkFnL16WD30VMa8wL8va0Khpx9APHffdPWpBOr9SUPdADtae5HO4iNCYvSgo3mrtPlKID2nIqREIHOQ==
   dependencies:
     "@types/bn.js" "^4.11.0"
     "@types/react" "*"
-    bignumber.js "~8.0.2"
-    ethereum-types "^2.1.3"
+    bignumber.js "~9.0.0"
+    ethereum-types "^3.0.0"
     popper.js "1.14.3"
 
-"@0x/utils@^4.3.3":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@0x/utils/-/utils-4.4.0.tgz#2bbd1eed6abbcfcbe79ca3da411b794e055007be"
-  integrity sha512-WnAxmOFPwJHVycja/r0FzXwKazI9y8olVwRuEHN51xvDKA/WYVQ6VpegN9eIF3xo7ytLkeDY0ihU9dEAN9tJvg==
+"@0x/utils@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@0x/utils/-/utils-5.1.1.tgz#1895529b5ec313f7056819458c8f55fbb19256cb"
+  integrity sha512-DRNKtAqZR0vFA1XdUhBwaIz2qEjWS1xqdvzQl/Dn8OLJH+1sxb+1UmtG6fOlbu7pTLbF+CWoaYf2+pvQfcF//g==
   dependencies:
-    "@0x/types" "^2.4.0"
-    "@0x/typescript-typings" "^4.2.3"
+    "@0x/types" "^3.1.1"
+    "@0x/typescript-typings" "^5.0.1"
     "@types/node" "*"
     abortcontroller-polyfill "^1.1.9"
-    bignumber.js "~8.0.2"
+    bignumber.js "~9.0.0"
     chalk "^2.3.0"
     detect-node "2.0.3"
-    ethereum-types "^2.1.3"
+    ethereum-types "^3.0.0"
     ethereumjs-util "^5.1.1"
     ethers "~4.0.4"
     isomorphic-fetch "2.2.1"
@@ -181,10 +181,10 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
-bignumber.js@~8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-8.0.2.tgz#d8c4e1874359573b1ef03011a2d861214aeef137"
-  integrity sha512-EiuvFrnbv0jFixEQ9f58jo7X0qI2lNGIr/MxntmVzQc5JUweDSh8y8hbTCAomFtqwUPIOWcLXP0VEOSZTG7FFw==
+bignumber.js@~9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-9.0.0.tgz#805880f84a329b5eac6e7cb6f8274b6d82bdf075"
+  integrity sha512-t/OYhhJ2SD+YGBQcjY8GzzDHEk9f3nerxjtfa6tlMXfe7frs/WozhvCNoGvpM0P3bNf3Gq5ZRMlGr5f3r4/N8A==
 
 bindings@^1.2.1, bindings@^1.5.0:
   version "1.5.0"
@@ -433,13 +433,13 @@ esutils@^2.0.2:
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
   integrity sha1-Cr9PHKpbyx96nYrMbepPqqBLrJs=
 
-ethereum-types@^2.1.3:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/ethereum-types/-/ethereum-types-2.1.3.tgz#766a483f1beedd195e9e1665ba38979fc3b81a47"
-  integrity sha512-m+PLWGl9eyOEApIoubLQ0e/OFUEm1KUUmnJjAlV3Jcs9LgJD+jEfJOtTIdnRsKgNzRojwfErriqKjlvqjjkODw==
+ethereum-types@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ethereum-types/-/ethereum-types-3.0.0.tgz#9fa3a98b8b9b64a0fab1864de7bc7fd7b1699fcd"
+  integrity sha512-jRSsiua+e4/89r7M3mqPcP1M2f3TgXxpVmWysy+7pEg2H4lwEQRWarbYfIpWp81NtxrcMQv5bMK+yR1MN4sDpg==
   dependencies:
     "@types/node" "*"
-    bignumber.js "~8.0.2"
+    bignumber.js "~9.0.0"
 
 ethereumjs-util@^5.1.1:
   version "5.2.0"
