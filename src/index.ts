@@ -102,6 +102,13 @@ const globAsync = promisify(glob);
         }
 
     // Find/replace relative links with hash links
+    // NOTE(jalextowle) If `typedoc` doesn't generate any reference documentation, then the
+    // `reference.md` file will be left empty. We exit here to prevent reading from an empty file.
+    if (!fs.existsSync(referencePath)) {
+        // tslint:disable-next-line:no-console
+        logUtils.log('@0x/ts-doc-gen warning: typedoc generated empty reference documenation');
+        process.exit(0);
+    }
     const docsBuff = fs.readFileSync(referencePath);
     let docs = docsBuff.toString();
     docs = docs.replace(/\]\(((?!.*(github.com|\]\()).*)(#.*\))/g, ']($3');
